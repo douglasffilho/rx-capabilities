@@ -1,0 +1,4 @@
+task-executor:
+  core-pool-size: 5
+  max-pool-size: 10
+  queue-capacity: 500
