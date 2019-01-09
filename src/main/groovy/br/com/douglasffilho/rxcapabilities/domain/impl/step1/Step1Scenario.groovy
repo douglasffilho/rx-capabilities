@@ -5,12 +5,12 @@ import br.com.douglasffilho.rxcapabilities.domain.Scenario
 import groovy.util.logging.Slf4j
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Profile
-import org.springframework.stereotype.Component
+import org.springframework.stereotype.Service
 
 import java.util.concurrent.Future
 
 @Slf4j
-@Component
+@Service
 @Profile("step1")
 class Step1Scenario implements Scenario {
 

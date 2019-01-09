@@ -5,6 +5,7 @@ import br.com.douglasffilho.rxcapabilities.domain.Actor
 import groovy.util.logging.Slf4j
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Profile
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor
 import org.springframework.stereotype.Component
 
 import java.util.concurrent.CompletableFuture
@@ -16,6 +17,9 @@ class CompletableFutureActor implements Actor<CompletableFuture<Integer>> {
 
     @Autowired
     private Action action
+
+    @Autowired
+    private ThreadPoolTaskExecutor taskExecutor
 
     private Integer doAsyncAction(String actionName) {
         long init = System.nanoTime()
@@ -33,6 +37,6 @@ class CompletableFutureActor implements Actor<CompletableFuture<Integer>> {
 
     @Override
     CompletableFuture<Integer> doAction(String actionName) {
-        CompletableFuture.supplyAsync( {doAsyncAction(actionName)})
+        CompletableFuture.supplyAsync( {doAsyncAction(actionName)}, taskExecutor)
     }
 }
