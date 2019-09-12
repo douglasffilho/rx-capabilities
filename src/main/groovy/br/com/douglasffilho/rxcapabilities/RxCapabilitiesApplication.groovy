@@ -4,7 +4,6 @@ import br.com.douglasffilho.rxcapabilities.steps.StepsExecutor
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
-import org.springframework.context.annotation.AdviceMode
 import org.springframework.scheduling.annotation.EnableAsync
 
 import javax.annotation.PostConstruct

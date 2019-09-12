@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Profile
 import org.springframework.stereotype.Service
 
-import java.util.concurrent.CompletableFuture
-
 @Slf4j
 @Service
 @Profile("step4")
@@ -46,7 +44,7 @@ class Step4Scenario implements Scenario {
         observable.blockingLast()
 
         long end = System.nanoTime()
-        BigDecimal time = (end - init)/1.0E9
+        BigDecimal time = (end - init) / 1.0E9
         log.info("tasks ended in {}ns", time)
     }
 
