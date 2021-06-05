@@ -18,7 +18,7 @@ class Step2Scenario implements Scenario {
     private Actor actor
 
     @Override
-    def play() {
+    BigDecimal play() {
         long init = System.nanoTime()
         log.info("Started tasks")
 
@@ -26,15 +26,25 @@ class Step2Scenario implements Scenario {
         CompletableFuture<Integer> future2 = actor.doAction('task2') as CompletableFuture<Integer>
         CompletableFuture<Integer> future3 = actor.doAction('task3') as CompletableFuture<Integer>
         CompletableFuture<Integer> future4 = actor.doAction('task4') as CompletableFuture<Integer>
+        CompletableFuture<Integer> future5 = actor.doAction('task5') as CompletableFuture<Integer>
+        CompletableFuture<Integer> future6 = actor.doAction('task6') as CompletableFuture<Integer>
+        CompletableFuture<Integer> future7 = actor.doAction('task7') as CompletableFuture<Integer>
+        CompletableFuture<Integer> future8 = actor.doAction('task8') as CompletableFuture<Integer>
 
         Integer result1 = future1.get()
         Integer result2 = future2.get()
         Integer result3 = future3.get()
         Integer result4 = future4.get()
+        Integer result5 = future5.get()
+        Integer result6 = future6.get()
+        Integer result7 = future7.get()
+        Integer result8 = future8.get()
 
         long end = System.nanoTime()
         BigDecimal time = (end - init)/1.0E9
-        log.info("tasks ended in {}ns", time)
+        log.info("tasks ended in {}s", time)
+
+        return time
     }
 
 }

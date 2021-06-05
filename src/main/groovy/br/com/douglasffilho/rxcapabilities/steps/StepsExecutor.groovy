@@ -10,8 +10,8 @@ class StepsExecutor {
     @Autowired
     private Scenario scenario
 
-    def playTheConcert() {
-        scenario.play()
+    BigDecimal playTheConcert() {
+        return scenario.play()
     }
 
 }

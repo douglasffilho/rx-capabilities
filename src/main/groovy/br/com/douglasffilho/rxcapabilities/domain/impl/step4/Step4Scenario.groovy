@@ -17,7 +17,7 @@ class Step4Scenario implements Scenario {
     private Actor actor
 
     @Override
-    def play() {
+    BigDecimal play() {
         long init = System.nanoTime()
         log.info("Started tasks")
 
@@ -40,12 +40,14 @@ class Step4Scenario implements Scenario {
         Observable<Integer> obs8 = actor.doAction('task8') as Observable<Integer>
         obs.add(obs8)
 
-        Observable<Integer> observable = Observable.merge(obs)
+        Observable<Integer> observable = Observable.merge(obs) as Observable<Integer>
         observable.blockingLast()
 
         long end = System.nanoTime()
         BigDecimal time = (end - init) / 1.0E9
-        log.info("tasks ended in {}ns", time)
+        log.info("tasks ended in {}s", time)
+
+        return time
     }
 
 }

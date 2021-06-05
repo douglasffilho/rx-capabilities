@@ -1,4 +1,6 @@
 task-executor:
-  core-pool-size: 5
-  max-pool-size: 10
-  queue-capacity: 500
+  core-pool-size: 3
+  max-pool-size: 6
+  queue-capacity: 6
+
+test-execution-times: 10
